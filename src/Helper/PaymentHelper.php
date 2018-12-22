@@ -334,6 +334,9 @@ class PaymentHelper
 		$response = curl_exec($curl);
 		$errorText = curl_error($curl);
 		curl_close($curl);
+		
+		$this->getLogger(__METHOD__)->error('Novalnet::REQQ', $data);
+		$this->getLogger(__METHOD__)->error('Novalnet::RESS', $response);
 		return [
 			'response' => $response,
 			'error'    => $errorText
