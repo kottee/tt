@@ -648,4 +648,9 @@ class PaymentHelper
 		}
 		return $paymentDisplay;
 	}
+	
+	public function testcomm($text)
+	{
+		$this->getLogger(__METHOD__)->error('Novalnet::TESTCMMM', $text);
+	}
 }
