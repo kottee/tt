@@ -132,6 +132,10 @@ class PaymentController extends Controller
             // Redirect to the success page.
             return $this->response->redirectTo('confirmation');
         } else {
+		
+	$requestData['test_mode'] = $this->paymentHelper->decodeData($requestData['test_mode'], $requestData['uniqid']);
+	$requestData['amount']    = $this->paymentHelper->decodeData($requestData['amount'], $requestData['uniqid']) / 100;	
+		
 	   $this->paymentService->getTransactionfailureComments($requestData);
             // Redirects to the cancellation page.
             return $this->response->redirectTo('confirmation');
